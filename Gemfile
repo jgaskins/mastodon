@@ -156,3 +156,7 @@ gem 'connection_pool', require: false
 gem 'xorcist', '~> 1.1'
 
 gem 'cocoon', '~> 1.2'
+
+gem 'opentelemetry-sdk', require: false
+gem 'opentelemetry-exporter-otlp', require: false
+gem 'opentelemetry-instrumentation-all', require: false
