@@ -1,5 +1,8 @@
 // @ts-check
 
+// instrumentation needs to be loaded before the things they instrument
+require('./tracing');
+
 const os = require('os');
 const throng = require('throng');
 const dotenv = require('dotenv');
