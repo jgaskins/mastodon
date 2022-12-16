@@ -65,7 +65,12 @@ if ENV.keys.any? {|name| name.match?(/OTEL_.*_ENDPOINT/)}
     # 
     # ActiveRecord instrumentation disabled while investigating interaction
     # with attr_encrypted and both gems patching of ActiveRecord#reload
-    c.use_all({ 'OpenTelemetry::Instrumentation::ActiveRecord' => { enabled: false } })
+    c.use_all({
+      'OpenTelemetry::Instrumentation::ActiveRecord' => { enabled: false },
+      'OpenTelemetry::Instrumentation::Redis' => {
+        db_statement: :include,
+      },
+    })
   end
 
   # Create spans for some ActiveRecord activity (queries, but not callbacks)
